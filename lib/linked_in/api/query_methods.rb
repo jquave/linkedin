@@ -19,7 +19,17 @@ module LinkedIn
       end
 
       def company(options = {})
-        path   = company_path(options)
+        path = company_path(options)
+        simple_query(path, options)
+      end
+      
+      def job_bookmarks(options = {})
+        path = job_bookmarks_path(options)
+        simple_query(path, options)
+      end
+      
+      def job_suggestions(options = {})
+        path = job_suggestions_path(options)
         simple_query(path, options)
       end
 
@@ -66,7 +76,17 @@ module LinkedIn
             path += "~"
           end
         end
-
+        
+        # http://api.linkedin.com/v1/people/~/job-bookmarks
+        def job_bookmarks_path(options)
+          path = "/people/~/job-bookmarks"
+        end
+        
+        # http://api.linkedin.com/v1/people/~/suggestions/job-suggestions:(jobs)
+        def job_suggestions_path(options)
+          path = "suggestions/job-suggestions:(id,customer-job-code,active,posting-date,expiration-date,posting-timestamp,company:(id,name),position:(title,location,job-functions,industries,job-type,experience-level),skills-and-experience,description-snippet,description,salary,job-poster:(id,first-name,last-name,headline),referral-bonus,site-job-url,location-description)"
+        end
+        
     end
 
   end
