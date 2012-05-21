@@ -93,7 +93,7 @@ module LinkedIn
         end
         
         def people_search_path(options)
-          path = "people-search"
+          path = "/people-search"
         end
         
     end
