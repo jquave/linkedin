@@ -94,6 +94,13 @@ module LinkedIn
         
         def people_search_path(options)
           path = "/people-search?"
+          if first_name = options.delete(:first_name)
+            path += "first_name=#{CGI.escape(first_name)}"
+          elsif last_name = options.delete(:last_name)
+            path += "last_name=#{CGI.escape(last_name)}"
+          else
+            path += "~"
+          end
         end
         
     end
