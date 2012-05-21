@@ -84,7 +84,7 @@ module LinkedIn
         
         # http://api.linkedin.com/v1/people/~/suggestions/job-suggestions:(jobs)
         def job_suggestions_path(options)
-          path = "suggestions/job-suggestions:(id,customer-job-code,active,posting-date,expiration-date,posting-timestamp,company:(id,name),position:(title,location,job-functions,industries,job-type,experience-level),skills-and-experience,description-snippet,description,salary,job-poster:(id,first-name,last-name,headline),referral-bonus,site-job-url,location-description)"
+          path = "/people/~/suggestions/job-suggestions"
         end
         
     end
