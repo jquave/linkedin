@@ -32,6 +32,11 @@ module LinkedIn
         path = job_suggestions_path(options)
         simple_query(path, options)
       end
+      
+      def people_search(options = {})
+        path = people_search_path(options)
+        simple_query(path, options)
+      end
 
       private
 
@@ -85,6 +90,10 @@ module LinkedIn
         # http://api.linkedin.com/v1/people/~/suggestions/job-suggestions:(jobs)
         def job_suggestions_path(options)
           path = "/people/~/suggestions/job-suggestions"
+        end
+        
+        def people_search_path(options)
+          path = "people-search"
         end
         
     end
