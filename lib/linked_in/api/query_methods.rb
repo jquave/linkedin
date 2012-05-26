@@ -53,6 +53,7 @@ module LinkedIn
           params  = options.map { |k,v| "#{k}=#{v}" }.join("&")
           path   += "?#{params}" if not params.empty?
 
+          puts 'Request path: ' + path
           Mash.from_json(get(path, headers))
         end
 
@@ -95,9 +96,9 @@ module LinkedIn
         def people_search_path(options)
           path = "/people-search?"
           if first_name = options.delete(:first_name)
-            path += "first_name=#{CGI.escape(first_name)}"
+            path += "first-name=#{CGI.escape(first_name)}"
           elsif last_name = options.delete(:last_name)
-            path += "last_name=#{CGI.escape(last_name)}"
+            path += "last-name=#{CGI.escape(last_name)}"
           else
             path += "~"
           end
