@@ -98,12 +98,14 @@ module LinkedIn
 
           if first_name = options.delete(:first_name)
             path += "first-name=#{CGI.escape(first_name)}"
-          end
-          if last_name = options.delete(:last_name)
-            path += "last-name=#{CGI.escape(last_name)}"
+
+            if last_name = options.delete(:last_name)
+              path += "&last-name=#{CGI.escape(last_name)}"
+            end
           else
             path += "~"
           end
+
         end
         
     end
